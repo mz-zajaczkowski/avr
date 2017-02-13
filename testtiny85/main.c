@@ -28,12 +28,11 @@ int main(void)
 	ADMUX  |= (1 << ADLAR); // left adjust ADC conversion result, now we need only ADCH to be read
 	ADMUX  |= (0 << MUX3) | (0 << MUX2) | (1 << MUX1) | (0 << MUX0); // use ADC2 for input (PB4)
 
-	ADCSRA |= (1 << ADFR); // free-running mode
+//	ADCSRA |= (1 << ADFR); // free-running mode
 	ADCSRA |= (1 << ADEN); // ADC enable
 	ADCSRA |= (1 << ADSC); // ADC start conversions
 
 	uint8_t PWM_val = 0u;
-	uint8_t adc_val = 0u;
 	while(1)
 	{
 		if (ADCH < 255)
